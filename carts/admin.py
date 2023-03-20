@@ -11,5 +11,5 @@ class CartItemAdmin(admin.ModelAdmin):
 
 
 # Register your models here.
-admin.site.register(Cart)
-admin.site.register(CartItem)
+admin.site.register(Cart, CartAmin)
+admin.site.register(CartItem, CartItemAdmin)
