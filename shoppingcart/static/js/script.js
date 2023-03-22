@@ -58,3 +58,8 @@ $(document).ready(function() {
 }); 
 // jquery end
 
+//after 4 seconds, message is disappear
+setTimeout(function(){
+    // this message is id in template/include/alerts.html
+    $('#message').fadeOut('slow')
+}, 4000)

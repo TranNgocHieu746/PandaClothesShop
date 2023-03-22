@@ -16,3 +16,6 @@ class AccountAdmin(UserAdmin):
     fieldsets = ()
     
 admin.site.register(Account, AccountAdmin)
+
+# developer.Hieu@gmail.com
+# Hieusky123

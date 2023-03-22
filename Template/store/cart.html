@@ -4,13 +4,13 @@
 
 {% block content %}
 
-</header> <!-- section-header.// -->
+</header> 
 
 
 <section class="section-content padding-y bg">
 <div class="container">
 
-<!-- ============================ COMPONENT 1 ================================= -->
+
 <!--check empty cart-->
 {% if not cart_items %}
     <h2 class="text-center">Nothing in the shop now</h2>
@@ -54,7 +54,6 @@
 			</figure>
 		</td>
 		<td> 
-			<!-- col.// -->
 						<div class="col"> 
 							<div class="input-group input-spinner">
 								<div class="input-group-prepend">
@@ -76,16 +75,18 @@
 										<button class="btn btn-light" type="submit" id="button-minus"> <i class="fa fa-plus"></i> </button>
 									</form>
 								</div>
-							</div> <!-- input-group.// -->
-						</div> <!-- col.// -->
+							</div> 
+						</div> 
 		</td>
 		<td> 
 			<div class="price-wrap"> 
 				<var class="price">${{ cart_item.sub_total }}</var> 
 				<small class="text-muted"> ${{ cart_item.product.price }} each </small> 
-			</div> <!-- price-wrap .// -->
+			</div> 
 		</td>
 		<td class="text-right"> 
+
+		<!-- Remove button-->
 		<a href="{% url 'remove_cart_item' cart_item.product.id cart_item.id %}" onclick="return confirm('Are you sure to delete')" class="btn btn-danger"> Remove</a>
 		</td>
 	</tr>
@@ -94,9 +95,9 @@
 
 	</tbody>
 	</table>
-	</div> <!-- card.// -->
+	</div> 
 
-		</aside> <!-- col.// -->
+		</aside> 
 		<aside class="col-lg-3">
 
 			<div class="card">
@@ -119,18 +120,17 @@
 				</p>
 				<a href="./place-order.html" class="btn btn-primary btn-block"> Checkout </a>
 				<a href="{% url 'store' %}" class="btn btn-light btn-block">Continue Shopping</a>
-			</div> <!-- card-body.// -->
-			</div> <!-- card.// -->
+			</div> 
+			</div> 
 
-	</aside> <!-- col.// -->
+	</aside> 
 
 
-	</div> <!-- row.// -->
+	</div>
 {% endif %}
-<!-- ============================ COMPONENT 1 END .// ================================= -->
 
-</div> <!-- container .//  -->
+</div> 
 </section>
-<!-- ========================= SECTION CONTENT END// ========================= -->
+
 
 {% endblock %}

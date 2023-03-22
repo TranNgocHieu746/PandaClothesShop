@@ -7,16 +7,16 @@
 <section class="section-content padding-y bg">
     <div class="container">
     
-    <!-- ============================ COMPONENT 1 ================================= -->
+
     <div class="card">
         <div class="row no-gutters">
             <aside class="col-md-6">
     <article class="gallery-wrap"> 
         <div class="img-big-wrap">
            <a href="#"><img src="{{ single_product.images.url }}"></a>
-        </div> <!-- img-big-wrap.// -->
-accounts        
-    </article> <!-- gallery-wrap .end// -->
+        </div> 
+        accounts        
+    </article> 
             </aside>
             <main class="col-md-6 border-left">
 
@@ -46,7 +46,7 @@ accounts
                                 {% endfor %}
                               </select>
                         </div>
-                    </div> <!-- row.// -->
+                    </div> 
                     <div class="row">
                         <div class="item-option-select">
                             <h6>Select Size</h6>
@@ -58,7 +58,7 @@ accounts
                                 {% endfor %}                                
                               </select>
                         </div>
-                    </div> <!-- row.// -->
+                    </div> 
                     <hr>
 
                     {% if single_product.stock <= 0 %} 
@@ -68,12 +68,11 @@ accounts
 
                     {% endif %}
 
-                </article> <!-- product-info-aside .// -->
+                </article> 
               </form>
-            </main> <!-- col.// -->
-        </div> <!-- row.// -->
-    </div> <!-- card.// -->
-    <!-- ============================ COMPONENT 1 END .// ================================= -->
+            </main> 
+        </div> 
+    </div> 
     
     <br>
     
@@ -89,11 +88,11 @@ accounts
             <div class="icontext w-100">
                 <img src="{% static './images/avatars/avatar1.jpg' %}" class="img-xs icon rounded-circle">
                 <div class="text">
-                    <span class="date text-muted float-md-right">24.04.2020 </span>  
-                    <h6 class="mb-1">Mike John </h6>
+                    <span class="date text-muted float-md-right">06.03.2023</span>  
+                    <h6 class="mb-1">Tran Ngoc Hieu</h6>
                     
                 </div>
-            </div> <!-- icontext.// -->
+            </div> 
             <div class="mt-3">
                 <p>
                     Dummy comment Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -105,12 +104,10 @@ accounts
     
         
     
-        </div> <!-- col.// -->
-    </div> <!-- row.// -->
+        </div> 
+    </div> 
     
-    
-    </div> <!-- container .//  -->
+    </div> 
     </section>
-    <!-- ========================= SECTION CONTENT END// ========================= -->
 
 {% endblock %}
