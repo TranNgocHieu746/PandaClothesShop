@@ -5,7 +5,6 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
 
 
-
 # Create your views here.
 def _cart_id(request):
     cart = request.session.session_key
@@ -15,7 +14,7 @@ def _cart_id(request):
 
 
 def add_cart(request, product_id):
-     # get the product
+    # get the product
     product = Product.objects.get(id=product_id)
     product_variation = []
     if request.method == 'POST':
@@ -24,18 +23,18 @@ def add_cart(request, product_id):
             value = request.POST[key]
 
             try:
-                variation = Variation.objects.get(product=product, variation_category__iexact=key, variation_value__iexact=value)
+                variation = Variation.objects.get(product=product, variation_category__iexact=key,
+                                                  variation_value__iexact=value)
                 product_variation.append(variation)
             except:
                 pass
 
-   
     try:
         # get the cart using the cart_id present in the session
         cart = Cart.objects.get(cart_id=_cart_id(request))
     except Cart.DoesNotExist:
         cart = Cart.objects.create(
-            cart_id = _cart_id(request)
+            cart_id=_cart_id(request)
         )
     cart.save()
 
@@ -62,20 +61,20 @@ def add_cart(request, product_id):
             item.save()
         else:
             # create a new cart item
-            item = CartItem.objects.create(product=product, quantity = 1, cart=cart)
+            item = CartItem.objects.create(product=product, quantity=1, cart=cart)
             if len(product_variation) > 0:
                 item.variations.clear()
                 item.variations.add(*product_variation)
                 item.save()
     else:
         cart_item = CartItem.objects.create(
-            product = product,
-            quantity = 1,
-            cart = cart,
+            product=product,
+            quantity=1,
+            cart=cart,
         )
         if len(product_variation) > 0:
             cart_item.variations.clear()
-            cart_item.variations.add(item)
+            # cart_item.variations.add(item)
         cart_item.save()
     return redirect('cart')
 
@@ -89,7 +88,7 @@ def cart(request, total=0, quantity=0, cart_items=None):
         for cart_item in cart_items:
             total += (cart_item.product.price * cart_item.quantity)
             quantity += cart_item.quantity
-        tax = (2 * total)/100
+        tax = (2 * total) / 100
         grand_total = total + tax
     except ObjectDoesNotExist:
         pass
@@ -117,6 +116,7 @@ def remove_cart(request, product_id, cart_item_id):
     except:
         pass
     return redirect('cart')
+
 
 def remove_cart_item(request, product_id, cart_item_id):
     cart = Cart.objects.get(cart_id=_cart_id(request))
