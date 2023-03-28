@@ -16,7 +16,7 @@ class Product(models.Model):
     modified_date   = models.DateTimeField(auto_now=True)
 
     def get_url(self):
-        return reverse('product_detail', args=[self.category.slug,  self.slug])
+        return reverse('product_detail', args=[self.category.slug, self.slug])
 
     def __str__(self):
         return self.product_name
@@ -30,6 +30,7 @@ class VariationManager(models.Manager):
         return super(VariationManager, self).filter(variation_category='size', is_active=True)
 
 
+# tuple data
 variation_category_choice = (
     ('color', 'color'),
     ('size', 'size'),
@@ -41,7 +42,7 @@ class Variation(models.Model):
     variation_category = models.CharField(max_length=100, choices=variation_category_choice)
     variation_value = models.CharField(max_length=200)
     is_active = models.BooleanField(default=True)
-    created_date = models.DateField(auto_now=True)
+    created_date = models.DateTimeField(auto_now=True)
 
     objects = VariationManager()
 
